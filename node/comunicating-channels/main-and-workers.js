@@ -17,11 +17,10 @@ const th2 = new Worker('./calc.js', {
 channelTh1.port2.postMessage({ name: "Calling Th1" })
 channelTh2.port2.postMessage({ name: "Calling Th2" })
 
-
-// port1.on("message", (msg) => {
-//   console.log("PORT1:", msg)
-// })
-// port2.on("message", (msg) => {
-//   console.log("PORT2:", msg)
-// })
+channelTh1.port2.on("message", (msg) => {
+  console.log("Main thread PORT2:", msg)
+})
+channelTh2.port2.on("message", (msg) => {
+  console.log("Main thread PORT2:", msg)
+})
 
