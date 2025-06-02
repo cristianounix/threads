@@ -1,6 +1,14 @@
 import { Worker } from "node:worker_threads";
 import { performance } from "perf_hooks";
 
+// BigInts
+// const num = 100_000_000_000_000n
+// 1 thread  = 1559.1382500000002ms
+// 2 Threads = 870.714083ms
+// 4 Threads = 475.970875ms
+// 6 Threads = 382.96425ms
+
+
 const num = 100_000_000_000_000
 // 1 thread  = 36572.12225ms
 // 2 Threads = 18907.639750000002ms
@@ -17,6 +25,7 @@ for(let i = 0; i < THS; i++) {
     workerData: {
       count: count/THS,
       start: num + i * 300
+      // start: num + BigInt(i * 300)
     }
   })
 
