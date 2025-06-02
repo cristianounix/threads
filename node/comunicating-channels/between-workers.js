@@ -17,8 +17,8 @@ const th2 = new Worker('./calc.js', {
   transferList: [port2]
 })
 
-
-// port1.postMessage({ name: "Bla" })
+// postMessage also support transferList in the second argument
+port1.postMessage({ name: "Bla" }, [])
 // port2.postMessage({ name: "AAA" })
 
 

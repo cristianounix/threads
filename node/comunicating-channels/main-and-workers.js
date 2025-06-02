@@ -13,7 +13,6 @@ const th2 = new Worker('./calc.js', {
   transferList: [channelTh2.port1]
 })
 
-
 channelTh1.port2.postMessage({ name: "Calling Th1" })
 channelTh2.port2.postMessage({ name: "Calling Th2" })
 
